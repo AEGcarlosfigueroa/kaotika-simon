@@ -44,6 +44,8 @@ function App() {
 
   const [highScore, setHighScore] = useState(0);
 
+  const [bestGame, setBestGame] = useState([]);
+
   const minNumber = 0;
   const maxNumber = 3;
   const speedGame = 400;
@@ -56,11 +58,43 @@ function App() {
   const [pulses, setPulses] = useState(0);
   const [success, setSuccess] = useState(0);
   const [isGameOn, setIsGameOn] = useState(false);
+  const [isDemoOn, setIsDemoOn] = useState(false);
 
   const initGame = () => {
     randomNumber();
     setIsGameOn(true);
   }
+
+  const initHighScoreGame = () => {
+    if(bestGame.length !== 0)
+    {
+      setIsDemoOn(true);
+      setIsAllowedToPlay(false);
+    }
+    
+  }
+
+  useEffect(() => {
+    if(isDemoOn)
+    {
+      bestGame.map((item, index) => {
+        setTimeout(() => {
+          if(index === bestGame.length - 1)
+          {
+            setIsDemoOn(false);
+          }
+          else
+          {
+            play({id: colors[item].sound})
+            colors[item].ref.current.style.opacity = (1);
+            setTimeout(() => {
+              colors[item].ref.current.style.opacity = (0.5);
+            }, speed / 2)
+          }
+        }, speed * index)
+      })
+    }
+  }, [isDemoOn])
 
   useEffect(() => {
     if(!isAllowedToPlay){
@@ -99,6 +133,7 @@ function App() {
       if((turn-1) > highScore)
       {
         setHighScore(turn-1);
+        setBestGame(sequence);
       }
       setSequence([]);
       setCurrentGame([]);
@@ -109,6 +144,19 @@ function App() {
       setTurn(0);
     }
   }, [isGameOn])
+
+  useEffect(() => {
+    if(!isDemoOn)
+    {
+      setSequence([]);
+      setCurrentGame([]);
+      setIsAllowedToPlay(false);
+      setSpeed(speedGame);
+      setSuccess(0);
+      setPulses(0);
+      setTurn(0);
+    }
+  }, [isDemoOn])
 
   useEffect(() => {
     if(success === sequence.length && success > 0) {
@@ -146,7 +194,7 @@ function App() {
   return(
     <>
     {
-      isGameOn
+      isGameOn || isDemoOn
       ?
       <>
       <div className='header'>
@@ -174,6 +222,7 @@ function App() {
         <h1>KAOTIK SIMON</h1>
         <h2>HIGH SCORE: {highScore}</h2>
         <button id="button" onClick={initGame}>START</button>
+        <button id="button2" onClick = {initHighScoreGame}>BEST GAME</button>
       </div>
       </>
     }

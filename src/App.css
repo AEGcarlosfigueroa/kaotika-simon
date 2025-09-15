@@ -13,6 +13,10 @@
   -webkit-text-fill-color: white;
 }
 
+#button2{
+  -webkit-text-fill-color: white;
+}
+
 .container{
   display: flex;
   flex-wrap: wrap;
