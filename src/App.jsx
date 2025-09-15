@@ -42,6 +42,8 @@ function App() {
     }
   ];
 
+  const [highScore, setHighScore] = useState(0);
+
   const minNumber = 0;
   const maxNumber = 3;
   const speedGame = 400;
@@ -94,6 +96,10 @@ function App() {
 
   useEffect(() => {
     if(!isGameOn) {
+      if((turn-1) > highScore)
+      {
+        setHighScore(turn-1);
+      }
       setSequence([]);
       setCurrentGame([]);
       setIsAllowedToPlay(false);
@@ -166,6 +172,7 @@ function App() {
       <>
       <div className='header'>
         <h1>KAOTIK SIMON</h1>
+        <h2>HIGH SCORE: {highScore}</h2>
         <button id="button" onClick={initGame}>START</button>
       </div>
       </>
