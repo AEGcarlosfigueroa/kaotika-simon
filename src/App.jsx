@@ -154,7 +154,7 @@ function App() {
             key={index}
             ref={item.ref}
             className={`pad pad-${index}`}
-            style={{backgroundColor: `${item.color}`, opacity: 0.6}}
+            style={{opacity: 0.6}}
             onClick={() => handleClick(index)}
             >
             </div>
@@ -165,9 +165,9 @@ function App() {
       :
       <>
       <div className='header'>
-        <h1>SUPER SIMON</h1>
+        <h1>KAOTIK SIMON</h1>
+        <button id="button" onClick={initGame}>START</button>
       </div>
-      <button onClick={initGame}>START</button>
       </>
     }
     </>
