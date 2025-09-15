@@ -45,6 +45,7 @@ function App() {
   const [highScore, setHighScore] = useState(0);
 
   const [bestGame, setBestGame] = useState([]);
+  const [lastGame, setLastGame] = useState([]);
 
   const minNumber = 0;
   const maxNumber = 3;
@@ -59,6 +60,7 @@ function App() {
   const [success, setSuccess] = useState(0);
   const [isGameOn, setIsGameOn] = useState(false);
   const [isDemoOn, setIsDemoOn] = useState(false);
+  const [isLastGameOn, setLastGameOn] = useState(false);
 
   const initGame = () => {
     randomNumber();
@@ -73,6 +75,37 @@ function App() {
     }
     
   }
+
+  const initLastGame = () => {
+    if(lastGame.length !== 0)
+    {
+      setLastGameOn(true);
+      setIsAllowedToPlay(false);
+    }
+    
+  }
+
+  useEffect(() => {
+    if(isLastGameOn)
+    {
+      lastGame.map((item, index) => {
+        setTimeout(() => {
+          if(index === lastGame.length - 1)
+          {
+            setLastGameOn(false);
+          }
+          else
+          {
+            play({id: colors[item].sound})
+            colors[item].ref.current.style.opacity = (1);
+            setTimeout(() => {
+              colors[item].ref.current.style.opacity = (0.5);
+            }, speed / 2)
+          }
+        }, speed * index)
+      })
+    }
+  }, [isLastGameOn])
 
   useEffect(() => {
     if(isDemoOn)
@@ -135,6 +168,7 @@ function App() {
         setHighScore(turn-1);
         setBestGame(sequence);
       }
+      setLastGame(sequence);
       setSequence([]);
       setCurrentGame([]);
       setIsAllowedToPlay(false);
@@ -157,6 +191,19 @@ function App() {
       setTurn(0);
     }
   }, [isDemoOn])
+
+  useEffect(() => {
+    if(!isLastGameOn)
+    {
+      setSequence([]);
+      setCurrentGame([]);
+      setIsAllowedToPlay(false);
+      setSpeed(speedGame);
+      setSuccess(0);
+      setPulses(0);
+      setTurn(0);
+    }
+  }, [isLastGameOn])
 
   useEffect(() => {
     if(success === sequence.length && success > 0) {
@@ -191,14 +238,29 @@ function App() {
     }
   }
 
+  let header = "";
+
+  if(isGameOn)
+  {
+    header = <h1>Turn {turn}</h1>;
+  }
+  else if(isDemoOn)
+  {
+    header = <h1>Best Game</h1>
+  }
+  else
+  {
+    header = <h1>Last Game</h1>
+  }
+
   return(
     <>
     {
-      isGameOn || isDemoOn
+      isGameOn || isDemoOn || isLastGameOn
       ?
       <>
       <div className='header'>
-        <h1>Turn {turn}</h1>
+        {header}
       </div>
       <div className='container'>
 
@@ -223,6 +285,7 @@ function App() {
         <h2>HIGH SCORE: {highScore}</h2>
         <button id="button" onClick={initGame}>START</button>
         <button id="button2" onClick = {initHighScoreGame}>BEST GAME</button>
+        <button id="button3" onClick = {initLastGame}>LAST GAME</button>
       </div>
       </>
     }

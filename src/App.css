@@ -11,10 +11,20 @@
 
 #button{
   -webkit-text-fill-color: white;
+  background-color: black;
+  margin: 1vw;
 }
 
 #button2{
   -webkit-text-fill-color: white;
+  background-color: black;
+  margin: 1vw;
+}
+
+#button3{
+  -webkit-text-fill-color: white;
+  background-color: black;
+  margin: 1vw;
 }
 
 .container{
