@@ -140,11 +140,14 @@ function App() {
           colors[item].ref.current.style.opacity = (1);
           setTimeout(() => {
             colors[item].ref.current.style.opacity = (0.5);
+            if(index===sequence.length - 1)
+            {
+              setIsAllowedToPlay(true);
+            }
           }, speed / 2)
         }, speed * index)
       })
     }
-    setIsAllowedToPlay(true);
   }, [sequence])
 
   useEffect(() => {
