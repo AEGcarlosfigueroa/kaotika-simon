@@ -8,24 +8,46 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-position: center;
 }
 
 #button{
-  -webkit-text-fill-color: black;
-  background-color: white;
+  -webkit-text-fill-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 1vw;
+  border-width: 1%;
+  border-color: yellow;
 }
 
 #button2{
-  -webkit-text-fill-color: black;
-  background-color: white;
+  -webkit-text-fill-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 1vw;
+  border-width: 1%;
+  border-color: yellow;
 }
 
 #button3{
-  -webkit-text-fill-color: black;
-  background-color: white;
+  -webkit-text-fill-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 1vw;
+  border-width: 1%;
+  border-color: yellow;
+}
+
+#gameHeader{
+  background-color: rgba(0, 0, 0, 0.5);
+  width:fit-content;
+  height: fit-content;
+  margin: auto;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 3px;
+  border-color: yellow;
+  border-width: 1%;
+  border-style:groove;
+  margin-top: 3vh;
+  border-radius: 10%;
 }
 
 #table{
@@ -36,21 +58,19 @@
   background-size: contain;
   background-repeat: no-repeat;
   position:absolute;
+  background-position-y: bottom;
 }
 
 .container{
   display: flex;
   flex-wrap: wrap;
-  width: 78vw;
-  height: 75vh;
+  width: fit-content;
+  height: 30vh;
   background-color: transparent;
   padding: 30px;
-  margin-left: 11vw;
-  margin-right: 11vw;
-  margin-top: 17vh;
-  background-image: url("./assets/table.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45vh;
 }
 
 .center-container {
@@ -62,9 +82,8 @@
 }
 
 .pad{
-  width: 13vw;
-  margin: 2vw;
-  margin-top: 2vh;
+  width: 10vw;
+  margin: 3vw;
 }
 
 .pad:hover{
@@ -75,23 +94,31 @@
   background-image: url("./assets/pocionmorada.png");
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: 5vh;
+  background-position: center;
 }
 
 .pad-1{
   background-image: url("./assets/pocionazul.png");
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: 6vh;
+  background-position: center;
 }
 
 .pad-2{
   background-image: url("./assets/pocionroja.png");
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: 7vh;
+  background-position: center;
 }
 
 .pad-3{
   background-image: url("./assets/pocionverde.png");
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: 8vh;
+  background-position: center;
 }
 

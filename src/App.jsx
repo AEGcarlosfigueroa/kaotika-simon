@@ -265,7 +265,7 @@ function App() {
       isGameOn || isDemoOn || isLastGameOn
       ?
       <>
-      <div className='header'>
+      <div id="gameHeader">
         {header}
       </div>
       <div className='container'>
@@ -286,7 +286,7 @@ function App() {
       </>
       :
       <>
-      <div className='header'>
+      <div id="gameHeader">
         <h1>KAOTIK SIMON</h1>
         <h2>HIGH SCORE: {highScore}</h2>
         <button id="button" onClick={initGame}>START</button>
