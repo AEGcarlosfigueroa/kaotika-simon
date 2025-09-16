@@ -63,7 +63,10 @@ function App() {
   const [isLastGameOn, setLastGameOn] = useState(false);
 
   const initGame = () => {
-    randomNumber();
+    setTimeout(() => {
+      randomNumber();
+    }, 500)
+    
     setIsGameOn(true);
   }
 
