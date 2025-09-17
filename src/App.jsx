@@ -42,11 +42,27 @@ function App() {
     }
   ];
 
-  const messageArray = [
-    "You Failed",
-    "You Lose",
-    "Wrong Answer",
-    "You are dead"
+  const messageArrayCategory0 = [
+    "Did you even try?",
+    "You suck",
+  ]
+
+  const messageArrayCategory1 = [
+    "You are not good enough",
+    "You have the memory of a fish",
+    "You forget quickly"
+  ]
+
+  const messageArrayCategory2 = [
+    "Not too bad",
+    "You had a decent showing",
+    "You have some potential"
+  ]
+
+  const messageArrayCategory3 = [
+    "Impressive performance",
+    "You are quite good on this",
+    "I allow you to survive"
   ]
 
   const [gameMessage, setGameMessage] = useState("");
@@ -242,8 +258,29 @@ function App() {
   }
 
   const selectMessage = () => {
+
+    const messageArray = selectMessageArray();
     const randomNumber = Math.floor(Math.random() * messageArray.length);
     setGameMessage(messageArray[randomNumber]);
+  }
+
+  const selectMessageArray = () => {
+    if(turn - 1 < 5)
+    {
+      return messageArrayCategory0;
+    }
+    else if(turn - 1 < 10)
+    {
+      return messageArrayCategory1;
+    }
+    else if(turn - 1 < 20)
+    {
+      return messageArrayCategory2;
+    }
+    else
+    {
+      return messageArrayCategory3;
+    }
   }
 
   const handleClick = (index) => {
