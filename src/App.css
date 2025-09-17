@@ -65,12 +65,12 @@
   display: flex;
   flex-wrap: wrap;
   width: fit-content;
-  height: 30vh;
+  height: 35vh;
   background-color: transparent;
   padding: 30px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 45vh;
+  margin-top: 40vh;
 }
 
 .center-container {
@@ -82,8 +82,7 @@
 }
 
 .pad{
-  width: 10vw;
-  margin: 3vw;
+  width: 20vw;
 }
 
 .pad:hover{
@@ -94,7 +93,7 @@
   background-image: url("./assets/pocionmorada.png");
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 5vh;
+  margin-top: 4vh;
   background-position: center;
 }
 
@@ -102,7 +101,7 @@
   background-image: url("./assets/pocionazul.png");
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 6vh;
+  margin-top: 4vh;
   background-position: center;
 }
 
@@ -110,7 +109,7 @@
   background-image: url("./assets/pocionroja.png");
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 7vh;
+  margin-top: 4vh;
   background-position: center;
 }
 
@@ -118,7 +117,7 @@
   background-image: url("./assets/pocionverde.png");
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 8vh;
+  margin-top: 4vh;
   background-position: center;
 }
 
