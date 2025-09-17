@@ -42,6 +42,15 @@ function App() {
     }
   ];
 
+  const messageArray = [
+    "You Failed",
+    "You Lose",
+    "Wrong Answer",
+    "You are dead"
+  ]
+
+  const [gameMessage, setGameMessage] = useState("");
+
   const [highScore, setHighScore] = useState(0);
 
   const [bestGame, setBestGame] = useState([]);
@@ -157,11 +166,13 @@ function App() {
       } else {
         const index = sequence[pulses - 1];
         if (index) colors[index].ref.current.style.opacity = (1);
-        play({id: 'error'})
+        play({id: 'error'});
+        selectMessage();
         setTimeout(() => {
           if (index) colors[index].ref.current.style.opacity = (0.5);
           setIsGameOn(false);
-        }, speed * 2)
+          setGameMessage("");
+        }, speed * 4)
         setIsAllowedToPlay(false);
       }
     }
@@ -230,6 +241,11 @@ function App() {
     setTurn(turn + 1);
   }
 
+  const selectMessage = () => {
+    const randomNumber = Math.floor(Math.random() * messageArray.length);
+    setGameMessage(messageArray[randomNumber]);
+  }
+
   const handleClick = (index) => {
     if(isAllowedToPlay) {
       play({id: colors[index].sound})
@@ -246,7 +262,11 @@ function App() {
 
   let header = "";
 
-  if(isGameOn)
+  if(gameMessage !== "")
+  {
+    header = <h1>{gameMessage}</h1>
+  }
+  else if(isGameOn)
   {
     header = <h1>Turn {turn}</h1>;
   }
