@@ -50,6 +50,24 @@
   border-radius: 10%;
 }
 
+#gameMessage{
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 3px;
+  border-color: yellow;
+  border-width: 1%;
+  border-style:groove;
+  margin-top: 3vh;
+  border-radius: 10%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width:fit-content;
+  height: fit-content;
+}
+
 #table{
   background-image: url("./assets/table.png");
   background-color: transparent;

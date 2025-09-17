@@ -301,11 +301,14 @@ function App() {
 
   let header = "";
 
+  let message = ""
+
   if(gameMessage !== "")
   {
-    header = <h1>{gameMessage}</h1>
+    message = <div id="gameMessage"><h1>{gameMessage}</h1></div>
   }
-  else if(isGameOn)
+
+  if(isGameOn)
   {
     header = <h1>Turn {turn}</h1>;
   }
@@ -327,6 +330,7 @@ function App() {
       <div id="gameHeader">
         {header}
       </div>
+      {message}
       <div className='container'>
 
         {colors.map((item, index) => {
