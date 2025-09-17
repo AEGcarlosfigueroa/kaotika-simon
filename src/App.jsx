@@ -55,7 +55,7 @@ function App() {
   ]
 
   const messageArrayCategory2 = [
-    "Not too bad",
+    "Not bad",
     "You had a decent showing",
     "You have some potential"
   ]
@@ -242,6 +242,7 @@ function App() {
   useEffect(() => {
     if(success === sequence.length && success > 0) {
       setSpeed(speed - sequence.length);
+      setIsAllowedToPlay(false);
       setTimeout(() => {
         setSuccess(0);
         setPulses(0);
