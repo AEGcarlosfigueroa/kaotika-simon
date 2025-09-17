@@ -45,11 +45,12 @@ function App() {
   const messageArrayCategory0 = [
     "Did you even try?",
     "You suck",
+    "You have the memory of a fish"
   ]
 
   const messageArrayCategory1 = [
     "You are not good enough",
-    "You have the memory of a fish",
+    "You will not escape",
     "You forget quickly"
   ]
 
