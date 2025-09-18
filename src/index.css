@@ -41,7 +41,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
-  cursor: pointer;
+  cursor: url("./assets/207580.png"), auto;
   transition: border-color 0.25s;
 }
 button:hover {

@@ -9,6 +9,7 @@
   width: 100vw;
   overflow: hidden;
   background-position: center;
+  cursor: url("./assets/207579.png"), auto;
 }
 
 #button{
@@ -104,7 +105,7 @@
 }
 
 .pad:hover{
-  cursor: pointer;
+  cursor: url("./assets/207580.png"), auto;
 }
 
 .pad-0{
