@@ -182,11 +182,11 @@ function App() {
         setSuccess(success + 1);
       } else {
         const index = sequence[pulses - 1];
-        if (index) colors[index].ref.current.style.opacity = (1);
+        colors[index].ref.current.style.opacity = (1);
         play({id: 'error'});
         selectMessage();
         setTimeout(() => {
-          if (index) colors[index].ref.current.style.opacity = (0.5);
+          colors[index].ref.current.style.opacity = (0.5);
           setIsGameOn(false);
           setGameMessage("");
         }, speed * 4)
